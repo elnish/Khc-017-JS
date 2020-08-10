@@ -1,5 +1,5 @@
 /* Подключение */
-alert("Alena"); 
+// alert("Alena"); 
 
 /* Переменные */
 /* 1 */
@@ -10,7 +10,7 @@ title = "Second title";
 console.log(title);
 
 /* 2 */
-var a = 25, b =10;
+var a = 25, b = 10;
 console.log('a = ' + a, 'b = ' + b);
 
 a = b;
@@ -27,9 +27,9 @@ s = c * c;
 console.log(c);
 
 /* 2 */
-var number = 48;
-var k = number / 12;
-var g = number%40;
+var number = 36;
+var k = parseInt(number / 10);
+var g = number % (k * 10);
 console.log('namber = ' + number, "десятки: " + k, "единицы: " + g);
 
 /* 3 */
@@ -38,13 +38,12 @@ console.log("d > 2 ? " + d > 2);
 console.log("e <= 3 ? " + e <= 3);
 
 /* 4 */
-console.log("d < e < f ? " +  d < e < f);
+console.log("d < e < f ? " +  d < e && e < f);
 
 /* 5 */
-var j = 101;
-if ( j % 2 !== 0 && j > 100 ) {
-	console.log('данное число является нечетным трехзначным.');
-} 
+var j = 405;
+ 
+console.log(j % 2 !== 0 && j > 100 && (j / 100) % 2 !== 0);
 
 /* Преобразование данных */
 var x = 1;
