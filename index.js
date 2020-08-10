@@ -41,9 +41,9 @@ console.log("e <= 3 ? " + e <= 3);
 console.log("d < e < f ? " +  d < e && e < f);
 
 /* 5 */
-var j = 405;
+var j = 401;
  
-console.log(j % 2 !== 0 && j > 100 && (j / 100) % 2 !== 0);
+console.log(j % 2 !== 0 && j > 100 && j < 1000);
 
 /* Преобразование данных */
 var x = 1;
