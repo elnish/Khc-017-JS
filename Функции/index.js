@@ -57,3 +57,9 @@ calc(10, 5, 1);
 calc(10, 5, 2);
 calc(10, 5, 3);
 calc(10, 5, 6);
+
+/* 5 */
+
+function digitN(k, n) {
+
+}
