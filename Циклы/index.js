@@ -10,7 +10,13 @@ do {
 console.log(a);
 
 /* 2 */
-var n = 10;
+var n = 20;
+
+while( (n / 10 ) > 0) {
+  console.log( n % 10 );
+  n = (n - n % 10) / 10;
+}
+
 
 
 /* 3 */
@@ -36,34 +42,28 @@ for (var i = 1; i <= num; i++) {
 console.log(rez);
 
 /* 5 */
-
-var arr = [],
-value, 
-sum2 = 0;
-
-while ( value != '' ) {
-    value = prompt('Enter the number', '');
-    if( value != '' ) {
-        arr.push( Number(value) );
-    } 
+var arr = [];
+var sum2 = 0;
+for( var i = 0; ; i++ ){
+    arr[i] = Number( prompt('Enter the number', '') );
+    if (arr[i] == '' || arr[i] == undefined || isNaN( arr[i] ) == true) {
+      break;
+    }  
 }
 
-for(var i = 0; i < arr.length; i++ ) {
+for( var i = 0; i < arr.length; i++ ) {
   sum2 += arr[i];
 }
 
-console.log(arr, sum2);
+console.log( arr, sum2 );
 
 /* 6 */
 var x = 2;
 var y = 5;
 
-var x = 2;
-var y = 5;
-
-for (var i = x + 1; i <= y; i++ ) {
+for (var i = x; i < y; i++ ) {
  	
-  for(var k = 0; k < i; k++) {
+  for(var k = x; k <= i; k++) {
   	console.log(i);
   }
 }
