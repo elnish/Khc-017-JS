@@ -2,8 +2,7 @@
 function createArrayIterator(array) {
   var counter = 0;
   function itrArr() {
-    counter++;
-    return  array[counter - 1]; 
+    return  array[counter++]; 
   }
   
   return itrArr;
@@ -22,34 +21,35 @@ function rect(a, b) {
   var firstSide,
   secondSide;
 
- 
+  function setFirstSide() {
     if ( typeof(a) !== 'number' ||  a < 0 ) {
-       firstSide = 'first parament is not a number or 0'
-       console.log(typeof(a))
+      return firstSide = 'first parament is not a number or 0'
     } else {
-      firstSide = a;
-      console.log(typeof(a))
+      return firstSide = a;
     }
+  }
 
-    if ( typeof(b) !== 'number'||  b < 0 ) {
-       secondSide = 'second parametr is not a number or 0'
-       console.log(typeof(b))
+  function setSecondSide() {
+    if ( typeof(b) !== 'number' ||  b < 0 ) {
+      return secondSide = 'first parament is not b number or 0'
     } else {
-       secondSide = b;
-       console.log(typeof(b))
+      return secondSide = b;
     }
-  
-
-
+  }
+   
   function p() {
+    setFirstSide();
+    setSecondSide();
     return 2 * (firstSide + secondSide)
   }
 
   function s() {
+    setFirstSide();
+    setSecondSide();
     return firstSide * secondSide
   }
 
-  return [ p(), s(), ];
+  return [  p(), s(), ];
 }
 
 var calc = rect(10, 15);

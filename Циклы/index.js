@@ -18,7 +18,6 @@ while( (n / 10 ) > 0) {
 }
 
 
-
 /* 3 */
 
 var d = 2;
@@ -46,7 +45,7 @@ var arr = [];
 var sum2 = 0;
 for( var i = 0; ; i++ ){
     arr[i] = Number( prompt('Enter the number', '') );
-    if (arr[i] == '' || arr[i] == undefined || isNaN( arr[i] ) == true) {
+    if (arr[i] == '' || isNaN( arr[i] ) == true) {
       break;
     }  
 }

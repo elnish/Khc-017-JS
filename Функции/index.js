@@ -3,7 +3,7 @@ function pow(x, n) {
   for( var i = 2; i <= n; i++ ) {
     x *= n;
   }
-  return console.log(x);
+  return x;
 }
 
 pow(3, 3);
@@ -12,9 +12,9 @@ pow(3, 3);
 
 function minMax(x, y) {
   if( x < y) {
-    console.log( x, y, 'min: ' + x)
+    return x;
   } else {
-    console.log( x, y, 'min: ' + y)
+    return y;
   }
 }
 
@@ -25,11 +25,11 @@ minMax(12, 20);
 
 function sign(x) {
   if (x < 0) {
-    return console.log( -1 );
+    return  -1;
   } else if (x == 0) {
-    return console.log( 0 );
+    return 0;
   } else {
-    return console.log( 1 );
+    return 1;
   }
 }
 
@@ -40,16 +40,16 @@ sign(20);
 function calc(a, b, op) {
   switch (op) {
     case 1:
-      return console.log( a - b );
+      return a - b;
       break;
     case 2:
-      return console.log( a * b );
+      return a * b;
       break;
     case 3:
-      return console.log( a / b );
+      return a / b;
       break;
     default:
-      return console.log( a + b );
+      return a + b;
   } 
 }
 
