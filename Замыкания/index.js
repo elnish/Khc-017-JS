@@ -4,9 +4,7 @@ function createArrayIterator(array) {
   function itrArr() {
     return  array[counter++]; 
   }
-  
   return itrArr;
-  
 }
 
 var arr = [5, 3, 7];
@@ -22,34 +20,26 @@ function rect(a, b) {
   secondSide;
 
   function setFirstSide() {
-    if ( typeof(a) !== 'number' ||  a < 0 ) {
-      return firstSide = 'first parament is not a number or 0'
-    } else {
+    if ( typeof(a) === 'number' &&  a > 0 ) {
       return firstSide = a;
     }
   }
 
   function setSecondSide() {
-    if ( typeof(b) !== 'number' ||  b < 0 ) {
-      return secondSide = 'first parament is not b number or 0'
-    } else {
+    if ( typeof(b) === 'number' &&  b > 0 ) {
       return secondSide = b;
     }
   }
    
   function p() {
-    setFirstSide();
-    setSecondSide();
     return 2 * (firstSide + secondSide)
   }
 
   function s() {
-    setFirstSide();
-    setSecondSide();
     return firstSide * secondSide
   }
 
-  return [  p(), s(), ];
+  return [ setFirstSide(), setSecondSide(), p(), s() ];
 }
 
 var calc = rect(10, 15);
