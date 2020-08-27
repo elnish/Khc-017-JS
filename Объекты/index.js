@@ -67,17 +67,24 @@ console.log( tv.previousChannel() );
 
 var mp3 = {
   model: 'Sony',
-  color: 'blue',
   memory: '4 Gb',
-  material: 'plastic',
-  display: 'LCD',
+  play: false,
   describe: function() {
-    return 'MP3 фирмы ' + this.model + ', ' + this.color + ' цвета, встроенная память ' + this.memory + ', дисплей ' + this.display 
-    +  ', материал ' + this.material;
+    return 'MP3 фирмы ' + this.model + ',  встроенная память ' + this.memory;
+  },
+  ternOn: function() {
+    this.play == true;
+    return 'play'
+  },
+  ternOff: function() {
+    this.play == false;
+    return 'stop'
   }
 }
 
 console.log( mp3.describe() );
+console.log( mp3.ternOn() );
+console.log( mp3.ternOff() );
 
 // #5
 
@@ -121,6 +128,7 @@ var table = {
   }
 }
 
+
 // #6 
 var obj1 = {};
 
@@ -148,11 +156,13 @@ var salaries = {
 
 function sum(obj) {
   var sum = 0;
+  var items = 0;
   for (var key in obj) {
      sum += obj[key];
-  }
+     items++;
 
-  return sum;
+  }
+  return Math.round(sum / items);
 }
 
 console.log( sum(salaries) );
