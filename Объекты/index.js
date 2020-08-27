@@ -88,46 +88,53 @@ console.log( mp3.ternOff() );
 
 // #5
 
-// var table = {
-//   row: {
-//     name: 'John',
-//     age: 28,
-//     experience: 1,
-//     languages: ['Java', 'JavaScript', 'SQL']
-//   },
-//   row: {
-//     name: 'Bill',
-//     age: 30,
-//     experience: 5,
-//     languages: ['HTML', 'CSS', 'JavaScript']
-//   },
-//   row: {
-//     name: 'Mike',
-//     age: 32,
-//     experience: 4,
-//     languages: ['Python', 'SQL']
-//   }
-// }
-
 var table = {
-  column: {
-    title: 'Name',
-    items: ['John', 'Bill', 'Mike']
-  },
-  column: {
-    title: 'Age',
-    items: [28, 30, 32]
-  },
-  column: {
-    title: 'Experience',
-    items: [1, 5, 4]
-  },
-  column: {
-    title: 'Languages',
-    items: [['Java', 'JavaScript', 'SQL'], ['HTML', 'CSS', 'JavaScript'], ['Python', 'SQL']]
-  }
+  rows: [
+    {
+      name: 'John',
+      age: 28,
+      experience: 1,
+      languages: ['Java', 'JavaScript', 'SQL']
+    },
+    {
+      name: 'Bill',
+      age: 30,
+      experience: 5,
+      languages: ['HTML', 'CSS', 'JavaScript']
+    },
+    {
+      name: 'Mike',
+      age: 32,
+      experience: 4,
+      languages: ['Python', 'SQL']
+    }
+  ]
 }
 
+console.log(table.rows[1].name);
+
+var table2 = {
+  columns: [
+    {
+      title: 'Name',
+      items: ['John', 'Bill', 'Mike']
+    },
+    {
+      title: 'Age',
+      items: [28, 30, 32]
+    },
+    {
+      title: 'Experience',
+      items: [1, 5, 4]
+    },
+    {
+      title: 'Languages',
+      items: [['Java', 'JavaScript', 'SQL'], ['HTML', 'CSS', 'JavaScript'], ['Python', 'SQL']]
+    }
+  ]
+}
+
+console.log(table2.columns[3].items[0][1]);
 
 // #6 
 var obj1 = {};
