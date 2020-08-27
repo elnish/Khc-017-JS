@@ -1,8 +1,8 @@
 "use strict";
 
 var calculator = {
-  a: this.a,
-  b: this.b,
+  a: 1,
+  b: 1,
   read: function() {
     this.a = Number(prompt("Enter the first number", ''));
     this.b = Number(prompt("Enter the second number", ''));

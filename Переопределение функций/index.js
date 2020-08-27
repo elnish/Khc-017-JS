@@ -1,16 +1,36 @@
+// function format(data, type) {
+//   if( type == "number" ) {
+//     format = function() {
+//       return Number(data);
+//     }
+//   } else if( type == "boolean" ) {
+//     format = function() {
+//       return Boolean(data);
+//     }
+//   } else if( type == "string" ) {
+//     format = function() {
+//       return String(data);
+//     }
+//   }
+// }
+
 function format(data, type) {
-  if( type == "number" ) {
-    format = function() {
-      return Number(data);
-    }
-  } else if( type == "boolean" ) {
-    format = function() {
-      return Boolean(data);
-    }
-  } else if( type == "string" ) {
-    format = function() {
-      return String(data);
-    }
+  switch(type) {
+    case "number":
+      format = function() {
+        return Number(data);
+      }
+      break;
+     case  "boolean": 
+      format = function() {
+        return Boolean(data);
+      }
+      break;
+      case  "string": 
+      format = function() {
+        return String(data);
+      }
+      break;
   }
 }
 
