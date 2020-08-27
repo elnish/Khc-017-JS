@@ -47,21 +47,25 @@ car3.run();
 var tv = {
   currentChannel: 1,
   nextChannel: function() {
-    return ++this.currentChannel;
+    ++this.currentChannel;
   },
   previousChannel: function() {
-    return --this.currentChannel;
+    --this.currentChannel;
   },
   setChannel: function() {
-    return this.currentChannel = 5;
+    this.currentChannel = 5;
   }
 }
 
 console.log( tv.currentChannel );
-console.log( tv.nextChannel() );
-console.log( tv.setChannel() );
-console.log( tv.nextChannel() );
-console.log( tv.previousChannel() );
+tv.nextChannel();
+console.log( tv.currentChannel );
+tv.setChannel();
+console.log( tv.currentChannel );
+tv.nextChannel();
+console.log( tv.currentChannel );
+tv.previousChannel();
+console.log( tv.currentChannel );
 
 // #4
 
