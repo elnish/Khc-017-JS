@@ -54,18 +54,3 @@ var salaries = {
 var employees = getArithmeticMean(salaries);
 
 console.log( employees.sum() );
-
-function sum(obj) {
-  var sum = 0;
-  var items = 0;
-  for (var key in obj) {
-     sum += obj[key];
-     items++;
-
-  }
-  return Math.round(sum / items);
-}
-
-console.log( sum(salaries) );
-
-
