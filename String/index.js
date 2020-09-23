@@ -6,25 +6,25 @@ var loginsArr = string.toLowerCase().split(',');
 console.log(loginsArr);
 
 /* 2 */
-var str;
-var rez = '';
-var hasNumber = /\d/; //google
 
-for ( let i = 0; ; i++ ) {
-  str = String( prompt('Enter the text', ''));
-  if (str != 'end' ) {
-    r = r.concat(str);
-  } else {
-    break;
-  }
+// let str = prompt('Enter the text', '');
+// let withNumber = [];
+// let withoutNumber = [];
+
+// while (str != 'end') {
+//   string = prompt('Enter the text', '');
   
-}
+//   string.forEach((i) => {
 
-if (hasNumber.test(rez)) {
-  console.log('Numbers: ' + rez)
-} else {
-  console.log('No_Numbers: ' + rez)
-}
+//     if (!isNaN(string[i])) {
+//       withNumber.push(string[i]);
+//     } else {
+//       withoutNumber.push(string[i]);
+//     }
+
+//   })
+// }
+
 
 
 
