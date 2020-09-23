@@ -7,15 +7,15 @@ function mul(...rest) {
   let count = 1;
   let counter = 0;
   
-  for ( let i = 0; i < rest.length; i++ ) {
-    if ( typeof(rest[i]) === "number" ) {
-      count *= rest[i];
-      counter++;
-    }
-  }
+  rest.forEach(el => {
+      if ( typeof(rest[el]) === "number" ) {
+        count *= rest[el];
+        counter++;
+      }
+  });
   
   if ( counter == 0 ) return 0;
-  
+    
   return count;
 }
 
@@ -45,7 +45,7 @@ multiCaller(obj.print(), 3);  // "obj", 3 раза
 let server = {
   data: 0,
   convertToString: function (callback) {
-    callback( () => { return this.data + "" } );
+    callback( () =>  this.data + ""  );
   }
 };
 
@@ -57,7 +57,7 @@ let client = {
      this.server.convertToString(this.notification());
   },
   notification: function () {
-    return ( (callback) => { this.result = callback() } );
+    return ( (callback) => this.result = callback() );
   }
 };
 
