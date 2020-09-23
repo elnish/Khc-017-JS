@@ -57,7 +57,7 @@ let client = {
      this.server.convertToString(this.notification());
   },
   notification: function () {
-    return ( (callback) => this.result = callback() );
+    return ( (callback) =>  this.result = callback() );
   }
 };
 
