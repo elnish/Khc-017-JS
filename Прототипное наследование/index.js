@@ -20,8 +20,9 @@ Figure.prototype.setY = function (y) {
    this._y = y;
 };
 
-function Rectangle() {
+function Rectangle(d) {
    Figure.call(this);
+   this._d = d;
 }
 
 
@@ -40,19 +41,20 @@ Rectangle.prototype.info = function () {
    return "Center " + [this.getX(), this.getY()] + ", diagonal - " + this.getDiagonal();
 };
 
-function Circle() {
+function Circle(radius) {
    Figure.call(this);
+   this._radius = radius;
 }
 
 Circle.prototype = Object.create(Figure.prototype);
 Circle.prototype.constructor = Circle;
 
 Circle.prototype.getRadius = function () {
-   return this.__radius;
+   return this._radius;
 };
 
 Circle.prototype.setRadius = function (radius) {
-   this.__radius = radius;
+   this._radius = radius;
 };
 
 Circle.prototype.info = function () {
@@ -60,14 +62,16 @@ Circle.prototype.info = function () {
 };
 
 
-var rect = new Rectangle();
+var rect = new Rectangle(10);
+console.log(rect.getDiagonal());
 rect.setX(10);
 rect.setY(10);
 rect.setDiagonal(15);
 console.log(rect.info());
 
 
-var circle = new Circle();
+var circle = new Circle(20);
+console.log(circle.getRadius());
 circle.setX(0);
 circle.setY(0);
 circle.setRadius(40);
@@ -92,9 +96,8 @@ Square.prototype.getPer = function () {
    return (this._side + this._side) * 2;
 };
 
-var square = new Square();
-square.setSide(20);
-console.log(square.getPer());
+var square = new Square(20);
+console.log(`square p - ${square.getPer()}`);
 
 function Cube() {
    Square.call(this);
