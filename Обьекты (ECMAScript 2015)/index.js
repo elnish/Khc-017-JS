@@ -53,7 +53,7 @@ let mp3 = {
          this._volume -= 20;
       } 
    },
-   getVolume() {
+   get getVolume() {
       return this._volume;
    }
 };

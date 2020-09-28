@@ -8,15 +8,26 @@ class MP3 {
        this._state = 'stop';
        this._volume = 0;
     }
-    getModel() {
+    get model() {
        return this._model;
     }
-    setName(model) {
-       this._model = model;
+
+    set model(model) {
+        this._model = model;
     }
+
+    get volume() {
+        return this._volume;
+    }
+
+    get state() {
+        return this._state;
+    }
+
     display() {
-       console.log(this._model);
+       console.log(`Model - ${this._model}, state - ${this._state}, volume - ${this._volume}`);
     }
+
     ternOn() {
         return this._state = 'play';
     }
@@ -33,21 +44,15 @@ class MP3 {
             this._volume -= 20;
         } 
     }
-    getVolume() {
-        return this._volume;
-    }
+   
  }
 
 let sony = new MP3('Sony');
+sony.ternOn();
+sony.louder();
+sony.louder();
+sony.louder();
 sony.display();
-console.log(sony.ternOn());
-sony.louder();
-sony.louder();
-sony.louder();
-console.log(sony.getVolume());
-sony.quieter();
-sony.louder();
-console.log(sony.getVolume());
 
 // 2
 class Figure {
