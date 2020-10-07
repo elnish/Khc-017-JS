@@ -23,25 +23,8 @@ Device.prototype.off = function () {
 };
 
 /** 1. RobotVC **/
-
-// 1. Выбрать первое устройство - Робот пылесос
-// 2. Чертеж первого устройства
-//    класс RobotVC
-//       состояние
-//          _name : String
-//          _state : Boolean
-//          _charge : Number (0 - 100 %)
-//       поведение
-//          getName() : String
-//          getState() : Boolean
-//          on() : void
-//          off() : void
-//          getCharge() : Number
-// 	      chargeUp(): void
-
 function RobotVC(name) {
    Device.call(this, name);
-   this._isEmpty = true;
    this._charge = 100;
 }
 
@@ -50,6 +33,16 @@ RobotVC.prototype.constructor = RobotVC;
 
 
 RobotVC.prototype.getCharge = function () {
+   return this._charge;
+};
+
+RobotVC.prototype.chargeUp = function () {
+   if ( this._charge < 100 ) {
+       this._charge = 100;
+   }
+};
+
+RobotVC.prototype.start = function () {
    if( this._charge < 0 ) {
       this._charge = 0;
    } else if( this._charge > 100 ) {
@@ -57,49 +50,11 @@ RobotVC.prototype.getCharge = function () {
    } else {
       this._charge = this._charge;
    }
-   return this._charge;
-};
-
-RobotVC.prototype.chargeUp = function () {
-   if ( this._charge < 100 ) {
-       this._charge += 100 - this._charge;
-   }
-};
-
-RobotVC.prototype.start = function () {
    this.on();
    this._charge -= 20;
 };
 
-// const vacuum = new RobotVC('Xiaomi');
-// console.log(vacuum);
-// vacuum.start();
-
-// console.log(vacuum.getCharge());
-// vacuum.chargeUp();
-// console.log(vacuum.getCharge());
-
-/** 1. Alarm **/
-
-
-// 4. Выбрать второе устройство:
-//    Сигнализацтя.
-// 5. Чертеж второго устройства:
-//    класс Alarm
-//       состояние:
-//          _name: String
-//          _state: Boolean
-//          _password: Number (numbers from 0 to 9)
-// 	 _isWarningSignalOn: Boolean
-//       поведение:
-//          getName: String
-//          on: void
-//          off: void
-//          getState: Boolean
-//          setPassword(password) : Number
-// 	      getPassword(): Number
-//          doorOpend(): void
-// 6. Набор кода для второго устройства (прототипное ООП)
+/** 2. Alarm **/
 
 function Alarm(name) {
    Device.call(this, name);
@@ -111,13 +66,13 @@ Alarm.prototype = Object.create(Device.prototype);
 Alarm.prototype.constructor = Alarm;
 
 
-Alarm.prototype.setPassword = function () {
+Alarm.prototype.setPassword = function (password) {
    var numbers = /^[0-9]+$/;
-   var pas = prompt('Enter the password, it should contain numbers from 0 to 9', '');
-   while(!pas.match(numbers)) {
-      pas = prompt('Please, enter just numbers from 0 to 9', '');
+   if( String(password).match(numbers) ) {
+      this._password = password;
+   } else {
+      this._password = NaN;
    }
-   this._password = pas;
 };
 
 Alarm.prototype.getPassword = function () {
@@ -126,42 +81,25 @@ Alarm.prototype.getPassword = function () {
 
 Alarm.prototype.signalOn = function () {
    this._isWarningSignalOn = true;
-   console.log('Warning');
 };
 
-Alarm.prototype.doorOpend = function () {
+Alarm.prototype.signalCheck = function () {
+   return "Is alarm signal on: " + this._isWarningSignalOn;
+};
+
+Alarm.prototype.doorOpend = function (password) {
    if ( this._state = true) {
       this.signalOn();
-      var controlPas = prompt('Please, enter the password', '');
-      if( controlPas  == this._password ) {
-         this._isWarningSignalOn = false;
-         console.log('Ok')
+      if( password  == this._password ) {
+         return this._isWarningSignalOn = false;
       } else {
-         console.log('Call the police!')
+         return this._isWarningSignalOn = true;
       }
    }
- 
 };
 
-// const alarm = new Alarm('AJAX');
-// alarm.on();
-// alarm.setPassword();
-// alarm.doorOpend();
 
-
-// 8. Чертеж класса Дом
-//    класс SmartHouse
-//       состояние
-//          _name: String
-//          _devices: [Object]
-//       поведение
-//          getName(): String
-//          addDevice(device): void
-//          getDevices(): [Object]
-//          getDeviceByName(name): Object
-//          deleteDeviceByName(name): void
-//          offAllDevice(): void
-// 9. Набор кода для класса Дом
+/** 3. Smart House **/
 
 function SmartHouse(name) {
    this._name = name;
@@ -226,9 +164,11 @@ console.log("state " + house.getDeviceByName('Xiaomi').getState());
 house.getDeviceByName('Xiaomi').start();
 console.log(house.getDeviceByName('Xiaomi').getCharge());
 
-console.log(house.getDeviceByName('AJAX').setPassword());
+house.getDeviceByName('AJAX').setPassword(123456789);
 console.log(house.getDeviceByName('AJAX').getPassword());
-console.log(house.getDeviceByName('AJAX').doorOpend());
+house.getDeviceByName('AJAX').doorOpend(12334);
+console.log(house.getDeviceByName('AJAX').signalCheck());
+
 
 console.log(house.getDevices());
 
