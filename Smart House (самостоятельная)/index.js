@@ -23,6 +23,7 @@ Device.prototype.off = function () {
 };
 
 /** 1. RobotVC **/
+
 function RobotVC(name) {
    Device.call(this, name);
    this._charge = 100;
@@ -43,8 +44,10 @@ RobotVC.prototype.chargeUp = function () {
 };
 
 RobotVC.prototype.start = function () {
-   this.on();
-   this._charge -= 20;
+   if ( this._charge >= 20 ) {
+      this.on();
+      this._charge -= 90;
+   } 
 };
 
 /** 2. Alarm **/
