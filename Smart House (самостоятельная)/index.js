@@ -46,7 +46,7 @@ RobotVC.prototype.chargeUp = function () {
 RobotVC.prototype.start = function () {
    if ( this._charge >= 20 ) {
       this.on();
-      this._charge -= 90;
+      this._charge -= 20;
    } 
 };
 
