@@ -38,18 +38,11 @@ RobotVC.prototype.getCharge = function () {
 
 RobotVC.prototype.chargeUp = function () {
    if ( this._charge < 100 ) {
-       this._charge = 100;
+      this._charge = 100;
    }
 };
 
 RobotVC.prototype.start = function () {
-   if( this._charge < 0 ) {
-      this._charge = 0;
-   } else if( this._charge > 100 ) {
-      this._charge = 100;
-   } else {
-      this._charge = this._charge;
-   }
    this.on();
    this._charge -= 20;
 };
@@ -58,7 +51,7 @@ RobotVC.prototype.start = function () {
 
 function Alarm(name) {
    Device.call(this, name);
-   this._password = '12345678';
+   this._password = 12345678;
    this._isWarningSignalOn = false;
 }
 
@@ -84,7 +77,7 @@ Alarm.prototype.signalOn = function () {
 };
 
 Alarm.prototype.signalCheck = function () {
-   return "Is alarm signal on: " + this._isWarningSignalOn;
+   return this._isWarningSignalOn;
 };
 
 Alarm.prototype.doorOpend = function (password) {

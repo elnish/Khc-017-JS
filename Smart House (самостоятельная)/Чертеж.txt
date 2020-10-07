@@ -4,7 +4,7 @@
       состояние
          _name : String
          _state : Boolean
-         _charge : Number (0 - 100 %)
+         _charge : Number (0 - 100)
       поведение
          getName() : String
          getState() : Boolean
@@ -31,9 +31,9 @@
          getState: Boolean
          setPassword(password) : Number
 	 getPassword(): Number
-	 signalOn(password): Boolean
+	 signalOn(): void
 	 signalCheck(): Boolean
-	 doorOpend(): void
+	 doorOpend(password): Boolean
 6. Набор кода для второго устройства (прототипное ООП)
 7. Общий код двух устройств выносим в класс родитель (наследнование)
 8. Чертеж класса Дом
