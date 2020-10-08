@@ -45,7 +45,7 @@ class MP3 {
         } 
     }
    
- }
+}
 
 let sony = new MP3('Sony');
 sony.ternOn();
